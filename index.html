@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      /* CSS for switch */
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      /* Hiding the default checkbox */
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      /* The slider */
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #cccccc;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+        border-radius: 34px; /* Rounded slider */
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+        border-radius: 50%; /* Rounded handle */
+      }
+
+      input:checked + .slider {
+        background-color: #234567;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #564311;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+
+      /* Dark mode styles */
+      body.dark-mode {
+        background-color: #111;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Click on the toogle button</h1>
+    <label class="switch">
+      <input type="checkbox" id="darkModeToggle" />
+      <span class="slider"></span>
+    </label>
+
+    <script>
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const body = document.body;
+
+      darkModeToggle.addEventListener("change", () => {
+        if (darkModeToggle.checked) {
+          body.classList.add("dark-mode");
+        } else {
+          body.classList.remove("dark-mode");
+        }
+      });
+    </script>
+  </body>
+</html>
